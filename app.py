@@ -62,15 +62,16 @@ def handle_message(event):
             longitude=120.72979695541645
         )
         line_bot_api.reply_message(event.reply_token, location_message)
-    # elif re.match('地點',message):
-    #     # line_bot_api.reply_message(event.reply_token,TextSendMessage('台中市'))
-    #     location_message = LocationSendMessage(
-    #         title='台中市國際網球中心',
-    #         address='匹克球',
-    #         latitude=24.16501945614464,
-    #         longitude=120.72979695541645
-    #     )
-    #     line_bot_api.reply_message(event.reply_token, location_message)
+    elif re.match('地點',message):
+        # line_bot_api.reply_message(event.reply_token,TextSendMessage('台中市'))
+        location_message = LocationSendMessage(
+            title='台中市舊社公園',
+            address='匹克球',
+            latitude= 24.181472130570306,
+            longitude=120.70156347027664
+            
+        )
+        line_bot_api.reply_message(event.reply_token, location_message)
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
 
