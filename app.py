@@ -55,6 +55,8 @@ def handle_message(event):
     message = text=event.message.text
     if re.match('告訴我秘密',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('才不告訴你哩！'))
+    elif re.match('地點',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('台中市'))
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
 
