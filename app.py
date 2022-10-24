@@ -77,8 +77,8 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, location_message)
     elif re.match('地點',message):
         line_bot_api.reply_message=[]
-        line_bot_api.reply_message.append(event.reply_token,TextSendMessage('你好'))
-        line_bot_api.reply_message.append(event.reply_token,TextSendMessage('哈囉'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('你好'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('哈囉'))
         
         # location_message = LocationSendMessage(
         #     title='台中市舊社公園',
@@ -87,7 +87,7 @@ def handle_message(event):
         #     longitude=120.70156347027664
             
         # )
-        # line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
     
