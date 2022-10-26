@@ -53,8 +53,8 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
+    line_bot_api.reply_message=[]
     if re.match('台中',message):
-        line_bot_api.reply_message=[]
         line_bot_api.reply_message.append(event.reply_token,TextSendMessage('你好！'))
         line_bot_api.reply_message.append(event.reply_token,TextSendMessage('才不告訴你哩！'))
     else:
