@@ -52,16 +52,11 @@ def callback():
 ##### 基本上程式編輯都在這個function #####
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    # message = text=event.message.text
-    # if re.match('台中',message):
-    #     line_bot_api.reply_message=[]
-    #     line_bot_api.reply_message.append(event.reply_token,TextSendMessage('你好！'))
-    #     line_bot_api.reply_message.append(event.reply_token,TextSendMessage('才不告訴你哩！'))
-    # else:
-    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+    line_bot_api.re_message=[]
     message = text=event.message.text
-    if re.match('告訴我秘密',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('才不告訴你哩！'),TextSendMessage('才不告訴！'))
+    if re.match('台中',message):
+        line_bot_api.re_message.append(event.reply_token,TextSendMessage('你好！'))
+        line_bot_api.re_message.append(event.reply_token,TextSendMessage('才不告訴你哩！'))
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
     
