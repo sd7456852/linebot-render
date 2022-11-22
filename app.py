@@ -71,7 +71,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('https://goo.gl/maps/RkDSMpwSzQcwF3yR9'))
     
     else:
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入以下問題'))
 #主程式
 import os
 if __name__ == "__main__":
