@@ -69,7 +69,8 @@ def handle_message(event):
 
     elif re.match('北屯',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('https://goo.gl/maps/RkDSMpwSzQcwF3yR9'))
-    
+    elif re.match('比賽',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('https://pickleball.global/compete/2022-taiwan-pickleball-open-1099/about'))
     else:
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入以下問題'))
 #主程式
