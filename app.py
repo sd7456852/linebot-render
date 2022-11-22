@@ -52,10 +52,10 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
-    if re.match('告訴我秘密',message):
+    if re.match('地點',message):
         flex_message = TextSendMessage(text='以下有雷，請小心',
                                quick_reply=QuickReply(items=[
-                                   QuickReplyButton(action=MessageAction(label="按我", text="按！")),
+                                   QuickReplyButton(action=MessageAction(label="北屯區", text="https://goo.gl/maps/RkDSMpwSzQcwF3yR9")),
                                    QuickReplyButton(action=MessageAction(label="按我", text="按！")),
                                    QuickReplyButton(action=MessageAction(label="按我", text="按！")),
                                    QuickReplyButton(action=MessageAction(label="別按我", text="你按屁喔！爆炸了拉！！")),
