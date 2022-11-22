@@ -66,6 +66,10 @@ def handle_message(event):
                                    QuickReplyButton(action=MessageAction(label="按我", text="按！"))
                                ]))
         line_bot_api.reply_message(event.reply_token, flex_message)
+
+    else if re.match('北屯',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('https://goo.gl/maps/RkDSMpwSzQcwF3yR9'))
+
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
 #主程式
