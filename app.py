@@ -60,6 +60,17 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('https://pickleball.global/compete/2022-taiwan-pickleball-open-1099/about'))
     else:
         line_bot_api.reply_message(event.reply_token,TextSendMessage('請輸入以下問題'))
+    # 傳送位置
+    # if re.match('告訴我秘密',message):
+    #     location_message = LocationSendMessage(
+    #         title='日治時期的古蹟',
+    #         address='總統府',
+    #         latitude=25.040213810016002,
+    #         longitude=121.51238385108306
+    #     )
+    #     line_bot_api.reply_message(event.reply_token, location_message)
+    # else:
+    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(message))    
 #主程式
 import os
 if __name__ == "__main__":
