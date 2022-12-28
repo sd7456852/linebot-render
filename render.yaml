@@ -2,7 +2,7 @@ services:
 - type: web
   name: line-bot-python-flask
   env: python
-  repo: https://github.com/sd7456852/linebot.git
+  repo: https://github.com/sd7456852/testbot.git
   buildCommand: cd examples/flask-kitchensink;pip install gunicorn -r requirements.txt
   startCommand: cd examples/flask-kitchensink;gunicorn app:app
   plan: free
