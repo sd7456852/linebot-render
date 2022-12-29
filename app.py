@@ -52,16 +52,30 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
-    if re.match('告訴我秘密',message):
+    # 地點
+    if re.match('台中',message):
         location_message = LocationSendMessage(
-            title='日治時期的古蹟',
-            address='總統府',
-            latitude=25.040213810016002,
-            longitude=121.51238385108306
+            title='匹克球場地',
+            address='台中網球中心 星期一、星期三 晚上7:00~9:00',
+            latitude=24.164931358000565,
+            longitude=120.7297540396959
         )
         line_bot_api.reply_message(event.reply_token, location_message)
-    elif re.match('地點',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('台中網球中心'))    
+        location_message = LocationSendMessage(
+            title='匹克球場地',
+            address='舊社公園 星期一晚上6:30 星期日下午2:00(夏天3:00)',
+            latitude=24.18113046915357,
+            longitude=120.70055242380153
+        )
+        line_bot_api.reply_message(event.reply_token, location_message)
+    elif re.match('嘉義',message):
+        location_message = LocationSendMessage(
+            title='匹克球場地',
+            address='嘉義高工',
+            latitude=23.472062366797523,
+            longitude=120.46423061269472
+        )
+        line_bot_api.reply_message(event.reply_token, location_message)
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
 #主程式
