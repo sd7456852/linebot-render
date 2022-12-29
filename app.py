@@ -60,6 +60,8 @@ def handle_message(event):
             longitude=121.51238385108306
         )
         line_bot_api.reply_message(event.reply_token, location_message)
+    elif re.match('地點',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('台中網球中心'))    
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
 #主程式
