@@ -52,7 +52,70 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
-    # 地點
+    # 地點 案紐
+    if re.match('地點',message):
+        carousel_template_message = TemplateSendMessage(
+            # 前面看不到
+            alt_text='場地地點',
+            template=CarouselTemplate(
+                columns=[
+                    CarouselColumn(
+                        thumbnail_image_url='https://upload.cc/i1/2022/12/30/2i7cN1.jpg'
+',
+                        title='北部',
+                        text='選擇場地',
+                        actions=[
+                            MessageAction(
+                                label='教學內容',
+                                text='拆解步驟詳細介紹安裝並使用Anaconda、Python、Spyder、VScode…'
+                            ),
+                            URIAction(
+                                label='馬上查看',
+                                uri='https://marketingliveincode.com/?page_id=270'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://i.imgur.com/W7nI6fg.jpg',
+                        title='中部',
+                        text='選擇場地',
+                        actions=[
+                            MessageAction(
+                                label='台中網球中心',
+                                text='台中網球中心'
+                                location_message = LocationSendMessage(
+                                title='匹克球場地',
+                                address='台中網球中心 星期一、星期三 晚上7:00~9:00',
+                                latitude=24.164931358000565,
+                                longitude=120.7297540396959
+                                )
+                                
+                            ),
+                            URIAction(
+                                label='馬上查看',
+                                uri='https://marketingliveincode.com/?page_id=2532'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://i.imgur.com/l7rzfIK.jpg',
+                        title='南部',
+                        text='選擇場地',
+                        actions=[
+                            MessageAction(
+                                label='教學內容',
+                                text='Telegrame申請與串接'
+                            ),
+                            URIAction(
+                                label='馬上查看',
+                                uri='https://marketingliveincode.com/?page_id=2648'
+                            )
+                        ]
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, carousel_template_message)
     if re.match('台中',message):
         location_message = LocationSendMessage(
             title='匹克球場地',
@@ -61,6 +124,8 @@ def handle_message(event):
             longitude=120.7297540396959
         )
         line_bot_api.reply_message(event.reply_token, location_message)
+        
+    elif re.match('台中',message):
         location_message = LocationSendMessage(
             title='匹克球場地',
             address='舊社公園 星期一晚上6:30 星期日下午2:00(夏天3:00)',
