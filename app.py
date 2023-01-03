@@ -219,8 +219,8 @@ def handle_message(event):
                                 text='拆解步驟詳細介紹安裝並使用Anaconda、Python、Spyder、VScode…'
                             ),
                             URIAction(
-                                label='馬上查看',
-                                uri='https://marketingliveincode.com/?page_id=270'
+                                label='台中網球中心',
+                                uri='https://goo.gl/maps/3BVyr4AmitdjYySn6'
                             )
                         ]
                     ),
@@ -234,8 +234,8 @@ def handle_message(event):
                                 text='Line Bot申請與串接'
                             ),
                             URIAction(
-                                label='馬上查看',
-                                uri='https://marketingliveincode.com/?page_id=2532'
+                                label='台中網球中心',
+                                uri='https://goo.gl/maps/3BVyr4AmitdjYySn6'
                             )
                         ]
                     ),
