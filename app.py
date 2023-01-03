@@ -150,6 +150,7 @@
 #     app.run(host='0.0.0.0', port=port)
 
 # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 Created on Wed Jun  2 21:16:35 2021
 
@@ -174,11 +175,11 @@ import re
 app = Flask(__name__)
 
 # 必須放上自己的Channel Access Token
-line_bot_api = LineBotApi('+WddPIOMZ56D7Tre1fmARy1z1eiZGJ5uJEQut/9vq1O6LsM+6hFBHugc/fwD1+HF/KwMEVqQWz1/4ef/4PMhkPWCA7TZXZVwdqB5dZIelMnkukmZL744cTBSBoW1Ua0aCYI94OidHv+wH4uBVJI36QdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('你自己的token')
 # 必須放上自己的Channel Secret
-handler = WebhookHandler('e97792d24f1f087c95eec15736713fcd')
+handler = WebhookHandler('你自己的secret')
 
-line_bot_api.push_message('U8d188af1584c5e78ab310184099a1bf5', TextSendMessage(text='你可以開始了'))
+line_bot_api.push_message('你自己的ID', TextSendMessage(text='你可以開始了'))
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -229,14 +230,8 @@ def handle_message(event):
                         text='請選擇場地',
                         actions=[
                             MessageAction(
-                                label='台中網球中心',
-                                location_message = LocationSendMessage(
-                                title='匹克球場地',
-                                address='台中網球中心 星期一、星期三 晚上7:00~9:00',
-                                latitude=24.164931358000565,
-                                longitude=120.7297540396959
-                            )
-                            line_bot_api.reply_message(event.reply_token, location_message)
+                                label='教學內容',
+                                text='Line Bot申請與串接'
                             ),
                             URIAction(
                                 label='馬上查看',
