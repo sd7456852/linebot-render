@@ -263,7 +263,9 @@ def handle_message(event):
         )
         line_bot_api.reply_message(event.reply_token, carousel_template_message)
     elif re.match('台中',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('台中網球中心(收費) 時間:星期一、星期三 晚上7:00~9:00 聯絡人:'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('台中網球中心(收費) \n時間:星期一、星期三 \n晚上7:00~9:00 聯絡人:'))
+    elif re.match('請輸入地區 例:台中',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(''))
         
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
