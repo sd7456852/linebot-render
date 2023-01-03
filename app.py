@@ -52,8 +52,8 @@
 # @handler.add(MessageEvent, message=TextMessage)
 # def handle_message(event):
 #     message = text=event.message.text
-#     # 地點 案紐
-#     if re.match('地點',message):
+#     # 場地 按鈕
+#     if re.match('場地',message):
 #         carousel_template_message = TemplateSendMessage(
 #             # 前面看不到
 #             alt_text='場地地點',
@@ -82,7 +82,7 @@
 #                         actions=[
 #                             MessageAction(
 #                                 label='台中網球中心',
-#                                 text='台中網球中心'
+#                                 text=''
 #                                 location_message = LocationSendMessage(
 #                                 title='匹克球場地',
 #                                 address='台中網球中心 星期一、星期三 晚上7:00~9:00',
@@ -148,6 +148,7 @@
 # if __name__ == "__main__":
 #     port = int(os.environ.get('PORT', 5000))
 #     app.run(host='0.0.0.0', port=port)
+
 # -*- coding: utf-8 -*-
 """
 Created on Wed Jun  2 21:16:35 2021
@@ -202,15 +203,15 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
-    if re.match('告訴我秘密',message):
+    if re.match('場地',message):
         carousel_template_message = TemplateSendMessage(
-            alt_text='免費教學影片',
+            alt_text='匹克球場地',
             template=CarouselTemplate(
                 columns=[
                     CarouselColumn(
-                        thumbnail_image_url='https://i.imgur.com/wpM584d.jpg',
-                        title='Python基礎教學',
-                        text='萬丈高樓平地起',
+                        thumbnail_image_url='https://upload.cc/i1/2022/12/30/2i7cN1.jpg',
+                        title='北部',
+                        text='請選擇場地',
                         actions=[
                             MessageAction(
                                 label='教學內容',
@@ -223,13 +224,19 @@ def handle_message(event):
                         ]
                     ),
                     CarouselColumn(
-                        thumbnail_image_url='https://i.imgur.com/W7nI6fg.jpg',
-                        title='Line Bot聊天機器人',
-                        text='台灣最廣泛使用的通訊軟體',
+                        thumbnail_image_url='https://upload.cc/i1/2022/12/30/2i7cN1.jpg',
+                        title='中部',
+                        text='請選擇場地',
                         actions=[
                             MessageAction(
-                                label='教學內容',
-                                text='Line Bot申請與串接'
+                                label='台中網球中心',
+                                location_message = LocationSendMessage(
+                                title='匹克球場地',
+                                address='台中網球中心 星期一、星期三 晚上7:00~9:00',
+                                latitude=24.164931358000565,
+                                longitude=120.7297540396959
+                            )
+                            line_bot_api.reply_message(event.reply_token, location_message)
                             ),
                             URIAction(
                                 label='馬上查看',
