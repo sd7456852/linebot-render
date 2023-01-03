@@ -225,30 +225,7 @@ def handle_message(event):
                             URIAction(
                                 label='台中網球中心',
                                 uri='https://goo.gl/maps/3BVyr4AmitdjYySn6'
-                            ),
-                            URIAction(
-                                label='台中網球中心',
-                                uri='https://goo.gl/maps/3BVyr4AmitdjYySn6'
-                            ),
-                            URIAction(
-                                label='台中網球中心',
-                                uri='https://goo.gl/maps/3BVyr4AmitdjYySn6'
-                            ),                            URIAction(
-                                label='台中網球中心',
-                                uri='https://goo.gl/maps/3BVyr4AmitdjYySn6'
-                            ),                            URIAction(
-                                label='台中網球中心',
-                                uri='https://goo.gl/maps/3BVyr4AmitdjYySn6'
-                            ),                            URIAction(
-                                label='台中網球中心',
-                                uri='https://goo.gl/maps/3BVyr4AmitdjYySn6'
-                            ),                            URIAction(
-                                label='台中網球中心',
-                                uri='https://goo.gl/maps/3BVyr4AmitdjYySn6'
-                            ),                            URIAction(
-                                label='台中網球中心',
-                                uri='https://goo.gl/maps/3BVyr4AmitdjYySn6'
-                            ),
+                            )
                         ]
                     ),
                     CarouselColumn(
@@ -285,6 +262,9 @@ def handle_message(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, carousel_template_message)
+    elif re.match('台中',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('台中網球中心(收費) 時間:星期一、星期三 晚上7:00~9:00 聯絡人:'))
+        
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
 #主程式
