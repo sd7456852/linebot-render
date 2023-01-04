@@ -151,17 +151,17 @@
 
 # -*- coding: utf-8 -*-
 # -*- coding: utf-8 -*-
----------------------------------------------------------------------------------------------
-"""
-Created on Wed Jun  2 21:16:35 2021
+# ---------------------------------------------------------------------------------------------
+# """
+# Created on Wed Jun  2 21:16:35 2021
 
-@author: Ivan
-版權屬於「行銷搬進大程式」所有，若有疑問，可聯絡ivanyang0606@gmail.com
+# @author: Ivan
+# 版權屬於「行銷搬進大程式」所有，若有疑問，可聯絡ivanyang0606@gmail.com
 
-Line Bot聊天機器人
-第四章 選單功能
-多樣版組合按鈕CarouselTemplate
-"""
+# Line Bot聊天機器人
+# 第四章 選單功能
+# 多樣版組合按鈕CarouselTemplate
+# """
 #載入LineBot所需要的套件
 # from flask import Flask, request, abort
 
