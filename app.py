@@ -183,7 +183,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-import json,requests,re
+import json,re
 
 app = Flask(__name__)
 # 必須放上自己的Channel Access Token
@@ -216,7 +216,7 @@ cities = ['基隆市','嘉義市','臺北市','嘉義縣','新北市','臺南市
 def get(city):
     token = 'CWB-CBE7DA58-A77F-45FD-9847-11C428FF256B'
     url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=' + token + '&format=JSON&locationName=' + str(city)
-    Data = requests.get(url)
+    Data = re.get(url)
     Data = (json.loads(Data.text,encoding='utf-8'))['records']['location'][0]['weatherElement']
     res = [[] , [] , []]
     for j in range(3):
@@ -257,6 +257,10 @@ def handle_message(event):
                     ]
                 )
             ))
+    elif re.match('台中',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('台中網球中心\n時間:星期一、星期三\n晚上7:00~9:00\n費用:零打130\n聯絡人:\n地圖:https://goo.gl/maps/dBqGFVxX5XwtUAZx5 \nLINE群組：國際網球中心匹克球 http://line.me/ti/g/y2HUGPU7Qa'))
+    elif re.match('請輸入地區 例:台中',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(''))        
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage('查詢場地請輸入 例:台中 高雄\n查詢天氣請輸入 例:天氣 台中 或傳送地標'))
 # @handler.add(MessageEvent, message=TextMessage)
