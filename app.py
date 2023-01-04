@@ -183,7 +183,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-import json,re
+import json,requests
 
 app = Flask(__name__)
 # 必須放上自己的Channel Access Token
@@ -216,7 +216,7 @@ cities = ['基隆市','嘉義市','臺北市','嘉義縣','新北市','臺南市
 def get(city):
     token = 'CWB-CBE7DA58-A77F-45FD-9847-11C428FF256B'
     url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=' + token + '&format=JSON&locationName=' + str(city)
-    Data = re.get(url)
+    Data = requests.get(url)
     Data = (json.loads(Data.text,encoding='utf-8'))['records']['location'][0]['weatherElement']
     res = [[] , [] , []]
     for j in range(3):
@@ -257,69 +257,69 @@ def handle_message(event):
                     ]
                 )
             ))
-    elif re.match('台中',message):
+    elif requests.match('台中',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('台中網球中心\n時間:星期一、星期三\n晚上7:00~9:00\n費用:零打130\n聯絡人:\n地圖:https://goo.gl/maps/dBqGFVxX5XwtUAZx5 \nLINE群組：國際網球中心匹克球 http://line.me/ti/g/y2HUGPU7Qa'))
-    elif re.match('請輸入地區 例:台中',message):
+    elif requests.match('請輸入地區 例:台中',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage(''))        
-    elif re.match('場地',message):
-        carousel_template_message = TemplateSendMessage(
-            alt_text='匹克球場地',
-            template=CarouselTemplate(
-                columns=[
-                    CarouselColumn(
-                        thumbnail_image_url='https://upload.cc/i1/2022/12/30/2i7cN1.jpg',
-                        title='北部',
-                        text='請選擇場地',
-                        actions=[
-                            MessageAction(
-                                label='教學內容',
-                                text='拆解步驟詳細介紹安裝並使用Anaconda、Python、Spyder、VScode…'
-                            ),
-                            URIAction(
-                                label='台中網球中心',
-                                uri='https://goo.gl/maps/3BVyr4AmitdjYySn6'
-                            ),
-                            URIAction(
-                                label='台中網球中心',
-                                uri='https://goo.gl/maps/3BVyr4AmitdjYySn6'
-                            )
-                        ]
-                    ),
-                    CarouselColumn(
-                        thumbnail_image_url='https://upload.cc/i1/2022/12/30/2i7cN1.jpg',
-                        title='中部',
-                        text='請選擇場地',
-                        actions=[
-                            MessageAction(
-                                label='教學內容',
-                                text='Line Bot申請與串接'
-                            ),
-                            URIAction(
-                                label='台中網球中心',
-                                uri='https://goo.gl/maps/3BVyr4AmitdjYySn6'
-                            )
-                        ]
-                    ),
-                    CarouselColumn(
-                        thumbnail_image_url='https://i.imgur.com/l7rzfIK.jpg',
-                        title='Telegram Bot聊天機器人',
-                        text='唯有真正的方便，能帶來意想不到的價值',
-                        actions=[
-                            MessageAction(
-                                label='教學內容',
-                                text='Telegrame申請與串接'
-                            ),
-                            URIAction(
-                                label='馬上查看',
-                                uri='https://marketingliveincode.com/?page_id=2648'
-                            )
-                        ]
-                    )
-                ]
-            )
-        )
+    # elif requests.match('場地',message):
+    #     carousel_template_message = TemplateSendMessage(
+    #         alt_text='匹克球場地',
+    #         template=CarouselTemplate(
+    #             columns=[
+    #                 CarouselColumn(
+    #                     thumbnail_image_url='https://upload.cc/i1/2022/12/30/2i7cN1.jpg',
+    #                     title='北部',
+    #                     text='請選擇場地',
+    #                     actions=[
+    #                         MessageAction(
+    #                             label='教學內容',
+    #                             text='拆解步驟詳細介紹安裝並使用Anaconda、Python、Spyder、VScode…'
+    #                         ),
+    #                         URIAction(
+    #                             label='台中網球中心',
+    #                             uri='https://goo.gl/maps/3BVyr4AmitdjYySn6'
+    #                         ),
+    #                         URIAction(
+    #                             label='台中網球中心',
+    #                             uri='https://goo.gl/maps/3BVyr4AmitdjYySn6'
+    #                         )
+    #                     ]
+    #                 ),
+    #                 CarouselColumn(
+    #                     thumbnail_image_url='https://upload.cc/i1/2022/12/30/2i7cN1.jpg',
+    #                     title='中部',
+    #                     text='請選擇場地',
+    #                     actions=[
+    #                         MessageAction(
+    #                             label='教學內容',
+    #                             text='Line Bot申請與串接'
+    #                         ),
+    #                         URIAction(
+    #                             label='台中網球中心',
+    #                             uri='https://goo.gl/maps/3BVyr4AmitdjYySn6'
+    #                         )
+    #                     ]
+    #                 ),
+    #                 CarouselColumn(
+    #                     thumbnail_image_url='https://i.imgur.com/l7rzfIK.jpg',
+    #                     title='Telegram Bot聊天機器人',
+    #                     text='唯有真正的方便，能帶來意想不到的價值',
+    #                     actions=[
+    #                         MessageAction(
+    #                             label='教學內容',
+    #                             text='Telegrame申請與串接'
+    #                         ),
+    #                         URIAction(
+    #                             label='馬上查看',
+    #                             uri='https://marketingliveincode.com/?page_id=2648'
+    #                         )
+    #                     ]
+    #                 )
+    #             ]
+    #         )
+    #     )
 
-        line_bot_api.reply_message(event.reply_token, carousel_template_message)
+    #     line_bot_api.reply_message(event.reply_token, carousel_template_message)
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage('查詢場地請輸入 例:台中 高雄\n查詢天氣請輸入 例:天氣 台中 或傳送地標'))
 
