@@ -232,7 +232,10 @@ def handle_message(event):
     user_id = event.source.user_id
     reply_token = event.reply_token
     message = text=event.message.text
-    if(message[:2] == '天氣'):
+    if re.match('台中',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('台中網球中心\n時間:星期一、星期三\n晚上7:00~9:00\n費用:零打130\n聯絡人:\n地圖:https://goo.gl/maps/dBqGFVxX5XwtUAZx5 \nLINE群組：國際網球中心匹克球 http://line.me/ti/g/y2HUGPU7Qa'))
+    
+    elif(message[:2] == '天氣'):
         city = message[3:]
         city = city.replace('台','臺')
         if(not (city in cities)):
@@ -257,8 +260,6 @@ def handle_message(event):
                     ]
                 )
             ))
-    elif re.match('台中',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('台中網球中心\n時間:星期一、星期三\n晚上7:00~9:00\n費用:零打130\n聯絡人:\n地圖:https://goo.gl/maps/dBqGFVxX5XwtUAZx5 \nLINE群組：國際網球中心匹克球 http://line.me/ti/g/y2HUGPU7Qa'))
     elif re.match('請輸入地區 例:台中',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage(''))        
     else:
