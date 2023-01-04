@@ -232,10 +232,7 @@ def handle_message(event):
     user_id = event.source.user_id
     reply_token = event.reply_token
     message = text=event.message.text
-    if re.match('台中',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('台中網球中心\n時間:星期一、星期三\n晚上7:00~9:00\n費用:零打130\n聯絡人:\n地圖:https://goo.gl/maps/dBqGFVxX5XwtUAZx5 \nLINE群組：國際網球中心匹克球 http://line.me/ti/g/y2HUGPU7Qa'))
-    
-    elif(message[:2] == '天氣'):
+    if(message[:2] == '天氣'):
         city = message[3:]
         city = city.replace('台','臺')
         if(not (city in cities)):
@@ -260,14 +257,11 @@ def handle_message(event):
                     ]
                 )
             ))
+    elif re.match('台中',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('台中網球中心\n時間:星期一、星期三\n晚上7:00~9:00\n費用:零打130\n聯絡人:\n地圖:https://goo.gl/maps/dBqGFVxX5XwtUAZx5 \nLINE群組：國際網球中心匹克球 http://line.me/ti/g/y2HUGPU7Qa'))
     elif re.match('請輸入地區 例:台中',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage(''))        
-    else:
-        line_bot_api.reply_message(event.reply_token, TextSendMessage('查詢場地請輸入 例:台中 高雄\n查詢天氣請輸入 例:天氣 台中 或傳送地標'))
-# @handler.add(MessageEvent, message=TextMessage)
-# def handle_message(event):
-#     message = text=event.message.text
-    if re.match('場地',message):
+    elif re.match('場地',message):
         carousel_template_message = TemplateSendMessage(
             alt_text='匹克球場地',
             template=CarouselTemplate(
@@ -326,13 +320,8 @@ def handle_message(event):
         )
 
         line_bot_api.reply_message(event.reply_token, carousel_template_message)
-    elif re.match('台中',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('台中網球中心\n時間:星期一、星期三\n晚上7:00~9:00\n費用:零打130\n聯絡人:\n地圖:https://goo.gl/maps/dBqGFVxX5XwtUAZx5 \nLINE群組：國際網球中心匹克球 http://line.me/ti/g/y2HUGPU7Qa'))
-    elif re.match('請輸入地區 例:台中',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(''))
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage('查詢場地請輸入 例:台中 高雄\n查詢天氣請輸入 例:天氣 台中 或傳送地標'))
-
 
 
 #主程式
