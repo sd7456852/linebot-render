@@ -1,0 +1,96 @@
+{
+    "type": "bubble",
+    "hero": {
+      "type": "image",
+      "url": "https://i.imgur.com/Ex3Opfo.png",
+      "size": "full",
+      "aspectRatio": "20:13",
+      "aspectMode": "cover",
+      "action": {
+        "type": "uri",
+        "uri": "https://linecorp.com"
+      }
+    },
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "action": {
+        "type": "uri",
+        "uri": "https://linecorp.com"
+      },
+      "contents": [
+        {
+          "type": "text",
+          "text": "{} ~ {}.format(res[0][0]['startTime'][5:-3],res[0][0]['endTime'][5:-3])",
+          "size": "xl",
+          "weight": "bold"
+        },
+        {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "box",
+              "layout": "baseline",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "天氣狀況 {}.format(data[0]['parameter']['parameterName'])",
+                  "weight": "bold",
+                  "margin": "sm",
+                  "flex": 0
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "溫度 {} ~ {} °C.format(data[2]['parameter']['parameterName'],data[4]['parameter']['parameterName'])",
+                  "weight": "bold",
+                  "margin": "sm",
+                  "flex": 0
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "layout": "baseline",
+              "contents": [
+                {
+                  "type": "text",
+                  "text": "降雨機率 {}.format(data[1]['parameter']['parameterName'])",
+                  "weight": "bold",
+                  "margin": "sm",
+                  "flex": 0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "type": "box",
+      "layout": "vertical",
+      "spacing": "md",
+      "action": {
+        "type": "uri",
+        "uri": "https://linecorp.com"
+      },
+      "contents": [
+        {
+          "type": "button",
+          "action": {
+            "type": "uri",
+            "label": "詳細內容",
+            "uri": "https://www.cwb.gov.tw/V8/C/W/County/index.html"
+          }
+        }
+      ]
+    }
+  }

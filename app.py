@@ -238,25 +238,8 @@ def handle_message(event):
         if(not (city in cities)):
             line_bot_api.reply_message(reply_token,TextSendMessage(text="查詢格式為: 天氣 縣市"))
         else:
-            res = get(city)
-            line_bot_api.reply_message(reply_token, TemplateSendMessage(
-                alt_text = city + '未來 36 小時天氣預測',
-                template = CarouselTemplate(
-                    columns = [
-                        CarouselColumn(
-                            thumbnail_image_url = 'https://i.imgur.com/Ex3Opfo.png',
-                            title = '{} ~ {}'.format(res[0][0]['startTime'][5:-3],res[0][0]['endTime'][5:-3]),
-                            text = '天氣狀況 {}\n溫度 {} ~ {} °C\n降雨機率 {}'.format(data[0]['parameter']['parameterName'],data[2]['parameter']['parameterName'],data[4]['parameter']['parameterName'],data[1]['parameter']['parameterName']),
-                            actions = [
-                                URIAction(
-                                    label = '詳細內容',
-                                    uri = 'https://www.cwb.gov.tw/V8/C/W/County/index.html'
-                                )
-                            ]
-                        )for data in res
-                    ]
-                )
-            ))
+            FlexMessage = json.load(open('weather.json','r',encoding='utf-8'))
+            line_bot_api.reply_message(reply_token, FlexSendMessage('profile',FlexMessage))
     elif re.match('台中',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('台中網球中心\n時間:星期一、星期三\n晚上7:00~9:00\n費用:零打130\n聯絡人:\n地圖:https://goo.gl/maps/dBqGFVxX5XwtUAZx5 \nLINE群組：國際網球中心匹克球 http://line.me/ti/g/y2HUGPU7Qa'))
     elif re.match('請輸入地區 例:台中',message):
