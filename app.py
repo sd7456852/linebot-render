@@ -153,7 +153,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
-    if re.match('1',message):
+    if re.match('第一個',message):
         buttons_template_message = TemplateSendMessage(
         alt_text='這個看不到',
         template=ButtonsTemplate(
@@ -178,7 +178,7 @@ def handle_message(event):
         )
     )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
-    elif re.match('1-1',message):
+    elif re.match('第二個',message):
         buttons_template_message = TemplateSendMessage(
         alt_text='這個看不到',
         template=ButtonsTemplate(
@@ -203,433 +203,433 @@ def handle_message(event):
         )
     )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
-    elif re.match('2',message):
+    elif re.match('第三個',message):
         # Flex Message Simulator網頁：https://developers.line.biz/console/fx/
         flex_message = FlexSendMessage(
             alt_text='行銷搬進大程式',
             contents={{
-  "type": "carousel",
-  "contents": [
-    {
-      "type": "bubble",
-      "size": "micro",
-      "hero": {
-        "type": "image",
-        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip10.jpg",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "320:213"
-      },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "Brown Cafe",
-            "weight": "bold",
-            "size": "sm",
-            "wrap": true
-          },
-          {
-            "type": "box",
-            "layout": "baseline",
-            "contents": [
-              {
-                "type": "icon",
-                "size": "xs",
-                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-              },
-              {
-                "type": "icon",
-                "size": "xs",
-                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-              },
-              {
-                "type": "icon",
-                "size": "xs",
-                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-              },
-              {
-                "type": "icon",
-                "size": "xs",
-                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-              },
-              {
-                "type": "icon",
-                "size": "xs",
-                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
-              },
-              {
-                "type": "text",
-                "text": "4.0",
-                "size": "xs",
-                "color": "#8c8c8c",
-                "margin": "md",
-                "flex": 0
-              }
-            ]
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "東京旅行",
-                    "wrap": true,
-                    "color": "#8c8c8c",
-                    "size": "xs",
-                    "flex": 5
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "spacing": "sm",
-        "paddingAll": "13px"
-      }
-    },
-    {
-      "type": "bubble",
-      "size": "micro",
-      "hero": {
-        "type": "image",
-        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip11.jpg",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "320:213"
-      },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "Brow&Cony's Restaurant",
-            "weight": "bold",
-            "size": "sm",
-            "wrap": true
-          },
-          {
-            "type": "box",
-            "layout": "baseline",
-            "contents": [
-              {
-                "type": "icon",
-                "size": "xs",
-                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-              },
-              {
-                "type": "icon",
-                "size": "xs",
-                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-              },
-              {
-                "type": "icon",
-                "size": "xs",
-                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-              },
-              {
-                "type": "icon",
-                "size": "xs",
-                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-              },
-              {
-                "type": "icon",
-                "size": "xs",
-                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
-              },
-              {
-                "type": "text",
-                "text": "4.0",
-                "size": "sm",
-                "color": "#8c8c8c",
-                "margin": "md",
-                "flex": 0
-              }
-            ]
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "東京旅行",
-                    "wrap": true,
-                    "color": "#8c8c8c",
-                    "size": "xs",
-                    "flex": 5
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "spacing": "sm",
-        "paddingAll": "13px"
-      }
-    },
-    {
-      "type": "bubble",
-      "size": "micro",
-      "hero": {
-        "type": "image",
-        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip12.jpg",
-        "size": "full",
-        "aspectMode": "cover",
-        "aspectRatio": "320:213"
-      },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "Tata",
-            "weight": "bold",
-            "size": "sm"
-          },
-          {
-            "type": "box",
-            "layout": "baseline",
-            "contents": [
-              {
-                "type": "icon",
-                "size": "xs",
-                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-              },
-              {
-                "type": "icon",
-                "size": "xs",
-                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-              },
-              {
-                "type": "icon",
-                "size": "xs",
-                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-              },
-              {
-                "type": "icon",
-                "size": "xs",
-                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-              },
-              {
-                "type": "icon",
-                "size": "xs",
-                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
-              },
-              {
-                "type": "text",
-                "text": "4.0",
-                "size": "sm",
-                "color": "#8c8c8c",
-                "margin": "md",
-                "flex": 0
-              }
-            ]
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "東京旅行",
-                    "wrap": true,
-                    "color": "#8c8c8c",
-                    "size": "xs",
-                    "flex": 5
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "spacing": "sm",
-        "paddingAll": "13px"
-      }
-    }
-  ]
-}} #json貼在這裡
+                        "type": "carousel",
+                        "contents": [
+                            {
+                            "type": "bubble",
+                            "size": "micro",
+                            "hero": {
+                                "type": "image",
+                                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip10.jpg",
+                                "size": "full",
+                                "aspectMode": "cover",
+                                "aspectRatio": "320:213"
+                            },
+                            "body": {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                {
+                                    "type": "text",
+                                    "text": "Brown Cafe",
+                                    "weight": "bold",
+                                    "size": "sm",
+                                    "wrap": true
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "baseline",
+                                    "contents": [
+                                    {
+                                        "type": "icon",
+                                        "size": "xs",
+                                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                                    },
+                                    {
+                                        "type": "icon",
+                                        "size": "xs",
+                                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                                    },
+                                    {
+                                        "type": "icon",
+                                        "size": "xs",
+                                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                                    },
+                                    {
+                                        "type": "icon",
+                                        "size": "xs",
+                                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                                    },
+                                    {
+                                        "type": "icon",
+                                        "size": "xs",
+                                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "4.0",
+                                        "size": "xs",
+                                        "color": "#8c8c8c",
+                                        "margin": "md",
+                                        "flex": 0
+                                    }
+                                    ]
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [
+                                    {
+                                        "type": "box",
+                                        "layout": "baseline",
+                                        "spacing": "sm",
+                                        "contents": [
+                                        {
+                                            "type": "text",
+                                            "text": "東京旅行",
+                                            "wrap": true,
+                                            "color": "#8c8c8c",
+                                            "size": "xs",
+                                            "flex": 5
+                                        }
+                                        ]
+                                    }
+                                    ]
+                                }
+                                ],
+                                "spacing": "sm",
+                                "paddingAll": "13px"
+                            }
+                            },
+                            {
+                            "type": "bubble",
+                            "size": "micro",
+                            "hero": {
+                                "type": "image",
+                                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip11.jpg",
+                                "size": "full",
+                                "aspectMode": "cover",
+                                "aspectRatio": "320:213"
+                            },
+                            "body": {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                {
+                                    "type": "text",
+                                    "text": "Brow&Cony's Restaurant",
+                                    "weight": "bold",
+                                    "size": "sm",
+                                    "wrap": true
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "baseline",
+                                    "contents": [
+                                    {
+                                        "type": "icon",
+                                        "size": "xs",
+                                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                                    },
+                                    {
+                                        "type": "icon",
+                                        "size": "xs",
+                                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                                    },
+                                    {
+                                        "type": "icon",
+                                        "size": "xs",
+                                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                                    },
+                                    {
+                                        "type": "icon",
+                                        "size": "xs",
+                                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                                    },
+                                    {
+                                        "type": "icon",
+                                        "size": "xs",
+                                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "4.0",
+                                        "size": "sm",
+                                        "color": "#8c8c8c",
+                                        "margin": "md",
+                                        "flex": 0
+                                    }
+                                    ]
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [
+                                    {
+                                        "type": "box",
+                                        "layout": "baseline",
+                                        "spacing": "sm",
+                                        "contents": [
+                                        {
+                                            "type": "text",
+                                            "text": "東京旅行",
+                                            "wrap": true,
+                                            "color": "#8c8c8c",
+                                            "size": "xs",
+                                            "flex": 5
+                                        }
+                                        ]
+                                    }
+                                    ]
+                                }
+                                ],
+                                "spacing": "sm",
+                                "paddingAll": "13px"
+                            }
+                            },
+                            {
+                            "type": "bubble",
+                            "size": "micro",
+                            "hero": {
+                                "type": "image",
+                                "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip12.jpg",
+                                "size": "full",
+                                "aspectMode": "cover",
+                                "aspectRatio": "320:213"
+                            },
+                            "body": {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [
+                                {
+                                    "type": "text",
+                                    "text": "Tata",
+                                    "weight": "bold",
+                                    "size": "sm"
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "baseline",
+                                    "contents": [
+                                    {
+                                        "type": "icon",
+                                        "size": "xs",
+                                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                                    },
+                                    {
+                                        "type": "icon",
+                                        "size": "xs",
+                                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                                    },
+                                    {
+                                        "type": "icon",
+                                        "size": "xs",
+                                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                                    },
+                                    {
+                                        "type": "icon",
+                                        "size": "xs",
+                                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                                    },
+                                    {
+                                        "type": "icon",
+                                        "size": "xs",
+                                        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "4.0",
+                                        "size": "sm",
+                                        "color": "#8c8c8c",
+                                        "margin": "md",
+                                        "flex": 0
+                                    }
+                                    ]
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [
+                                    {
+                                        "type": "box",
+                                        "layout": "baseline",
+                                        "spacing": "sm",
+                                        "contents": [
+                                        {
+                                            "type": "text",
+                                            "text": "東京旅行",
+                                            "wrap": true,
+                                            "color": "#8c8c8c",
+                                            "size": "xs",
+                                            "flex": 5
+                                        }
+                                        ]
+                                    }
+                                    ]
+                                }
+                                ],
+                                "spacing": "sm",
+                                "paddingAll": "13px"
+                            }
+                            }
+                        ]
+                        }} #json貼在這裡
         )
         line_bot_api.reply_message(event.reply_token, flex_message)
-    elif re.match('2-2',message):
+    elif re.match('第四個',message):
         # Flex Message Simulator網頁：https://developers.line.biz/console/fx/
         flex_message = FlexSendMessage(
             alt_text='行銷搬進大程式',
-            contents={{
-  "type": "bubble",
-  "hero": {
-    "type": "image",
-    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-    "size": "full",
-    "aspectRatio": "20:13",
-    "aspectMode": "cover",
-    "action": {
-      "type": "uri",
-      "uri": "http://linecorp.com/"
-    }
-  },
-  "body": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "text",
-        "text": "Brown Cafe",
-        "weight": "bold",
-        "size": "xl"
-      },
-      {
-        "type": "box",
-        "layout": "baseline",
-        "margin": "md",
-        "contents": [
-          {
-            "type": "icon",
-            "size": "sm",
-            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-          },
-          {
-            "type": "icon",
-            "size": "sm",
-            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-          },
-          {
-            "type": "icon",
-            "size": "sm",
-            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-          },
-          {
-            "type": "icon",
-            "size": "sm",
-            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-          },
-          {
-            "type": "icon",
-            "size": "sm",
-            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
-          },
-          {
-            "type": "text",
-            "text": "4.0",
-            "size": "sm",
-            "color": "#999999",
-            "margin": "md",
-            "flex": 0
-          }
-        ]
-      },
-      {
-        "type": "box",
-        "layout": "vertical",
-        "margin": "lg",
-        "spacing": "sm",
-        "contents": [
-          {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "Place",
-                "color": "#aaaaaa",
-                "size": "sm",
-                "flex": 1
-              },
-              {
-                "type": "text",
-                "text": "Miraina Tower, 4-1-6 Shinjuku, Tokyo",
-                "wrap": true,
-                "color": "#666666",
-                "size": "sm",
-                "flex": 5
-              }
-            ]
-          },
-          {
-            "type": "box",
-            "layout": "baseline",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "Time",
-                "color": "#aaaaaa",
-                "size": "sm",
-                "flex": 1
-              },
-              {
-                "type": "text",
-                "text": "10:00 - 23:00",
-                "wrap": true,
-                "color": "#666666",
-                "size": "sm",
-                "flex": 5
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  "footer": {
-    "type": "box",
-    "layout": "vertical",
-    "spacing": "sm",
-    "contents": [
-      {
-        "type": "button",
-        "style": "link",
-        "height": "sm",
-        "action": {
-          "type": "uri",
-          "label": "CALL",
-          "uri": "https://linecorp.com"
-        }
-      },
-      {
-        "type": "button",
-        "style": "link",
-        "height": "sm",
-        "action": {
-          "type": "uri",
-          "label": "WEBSITE",
-          "uri": "https://linecorp.com"
-        }
-      },
-      {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [],
-        "margin": "sm"
-      }
-    ],
-    "flex": 0
-  }
-}} #json貼在這裡
+            contents={
+                        "type": "bubble",
+                        "hero": {
+                            "type": "image",
+                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+                            "size": "full",
+                            "aspectRatio": "20:13",
+                            "aspectMode": "cover",
+                            "action": {
+                            "type": "uri",
+                            "uri": "http://linecorp.com/"
+                            }
+                        },
+                        "body": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "contents": [
+                            {
+                                "type": "text",
+                                "text": "Brown Cafe",
+                                "weight": "bold",
+                                "size": "xl"
+                            },
+                            {
+                                "type": "box",
+                                "layout": "baseline",
+                                "margin": "md",
+                                "contents": [
+                                {
+                                    "type": "icon",
+                                    "size": "sm",
+                                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                                },
+                                {
+                                    "type": "icon",
+                                    "size": "sm",
+                                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                                },
+                                {
+                                    "type": "icon",
+                                    "size": "sm",
+                                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                                },
+                                {
+                                    "type": "icon",
+                                    "size": "sm",
+                                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                                },
+                                {
+                                    "type": "icon",
+                                    "size": "sm",
+                                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "4.0",
+                                    "size": "sm",
+                                    "color": "#999999",
+                                    "margin": "md",
+                                    "flex": 0
+                                }
+                                ]
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "margin": "lg",
+                                "spacing": "sm",
+                                "contents": [
+                                {
+                                    "type": "box",
+                                    "layout": "baseline",
+                                    "spacing": "sm",
+                                    "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "Place",
+                                        "color": "#aaaaaa",
+                                        "size": "sm",
+                                        "flex": 1
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "Miraina Tower, 4-1-6 Shinjuku, Tokyo",
+                                        "wrap": true,
+                                        "color": "#666666",
+                                        "size": "sm",
+                                        "flex": 5
+                                    }
+                                    ]
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "baseline",
+                                    "spacing": "sm",
+                                    "contents": [
+                                    {
+                                        "type": "text",
+                                        "text": "Time",
+                                        "color": "#aaaaaa",
+                                        "size": "sm",
+                                        "flex": 1
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": "10:00 - 23:00",
+                                        "wrap": true,
+                                        "color": "#666666",
+                                        "size": "sm",
+                                        "flex": 5
+                                    }
+                                    ]
+                                }
+                                ]
+                            }
+                            ]
+                        },
+                        "footer": {
+                            "type": "box",
+                            "layout": "vertical",
+                            "spacing": "sm",
+                            "contents": [
+                            {
+                                "type": "button",
+                                "style": "link",
+                                "height": "sm",
+                                "action": {
+                                "type": "uri",
+                                "label": "CALL",
+                                "uri": "https://linecorp.com"
+                                }
+                            },
+                            {
+                                "type": "button",
+                                "style": "link",
+                                "height": "sm",
+                                "action": {
+                                "type": "uri",
+                                "label": "WEBSITE",
+                                "uri": "https://linecorp.com"
+                                }
+                            },
+                            {
+                                "type": "box",
+                                "layout": "vertical",
+                                "contents": [],
+                                "margin": "sm"
+                            }
+                            ],
+                            "flex": 0
+                        }
+                        } #json貼在這裡
         )
         line_bot_api.reply_message(event.reply_token, flex_message)
-    elif re.match('3',message):
+    elif re.match('第五個',message):
         carousel_template_message = TemplateSendMessage(
             alt_text='免費教學影片',
             template=CarouselTemplate(
@@ -683,7 +683,7 @@ def handle_message(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, carousel_template_message)
-    elif re.match('3-3',message):
+    elif re.match('第六個',message):
         carousel_template_message = TemplateSendMessage(
             alt_text='免費教學影片',
             template=CarouselTemplate(
