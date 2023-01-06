@@ -178,6 +178,31 @@ def handle_message(event):
         )
     )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
+    elif re.match('1-1',message):
+        buttons_template_message = TemplateSendMessage(
+        alt_text='這個看不到',
+        template=ButtonsTemplate(
+            thumbnail_image_url='https://i.imgur.com/wpM584d.jpg',
+            title='1-1',
+            text='選單功能－TemplateSendMessage',
+            actions=[
+                PostbackAction(
+                    label='1-1',
+                    display_text='1-1',
+                    data='action=檯面下'
+                ),
+                MessageAction(
+                    label='1-1',
+                    text='1-1'
+                ),
+                URIAction(
+                    label='行銷搬進大程式',
+                    uri='https://marketingliveincode.com/'
+                )
+            ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token, buttons_template_message)
     elif re.match('2',message):
         # Flex Message Simulator網頁：https://developers.line.biz/console/fx/
         flex_message = FlexSendMessage(
@@ -446,6 +471,164 @@ def handle_message(event):
 }} #json貼在這裡
         )
         line_bot_api.reply_message(event.reply_token, flex_message)
+    elif re.match('2-2',message):
+        # Flex Message Simulator網頁：https://developers.line.biz/console/fx/
+        flex_message = FlexSendMessage(
+            alt_text='行銷搬進大程式',
+            contents={{
+  "type": "bubble",
+  "hero": {
+    "type": "image",
+    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "cover",
+    "action": {
+      "type": "uri",
+      "uri": "http://linecorp.com/"
+    }
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "Brown Cafe",
+        "weight": "bold",
+        "size": "xl"
+      },
+      {
+        "type": "box",
+        "layout": "baseline",
+        "margin": "md",
+        "contents": [
+          {
+            "type": "icon",
+            "size": "sm",
+            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+          },
+          {
+            "type": "icon",
+            "size": "sm",
+            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+          },
+          {
+            "type": "icon",
+            "size": "sm",
+            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+          },
+          {
+            "type": "icon",
+            "size": "sm",
+            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+          },
+          {
+            "type": "icon",
+            "size": "sm",
+            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+          },
+          {
+            "type": "text",
+            "text": "4.0",
+            "size": "sm",
+            "color": "#999999",
+            "margin": "md",
+            "flex": 0
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "margin": "lg",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "baseline",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Place",
+                "color": "#aaaaaa",
+                "size": "sm",
+                "flex": 1
+              },
+              {
+                "type": "text",
+                "text": "Miraina Tower, 4-1-6 Shinjuku, Tokyo",
+                "wrap": true,
+                "color": "#666666",
+                "size": "sm",
+                "flex": 5
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Time",
+                "color": "#aaaaaa",
+                "size": "sm",
+                "flex": 1
+              },
+              {
+                "type": "text",
+                "text": "10:00 - 23:00",
+                "wrap": true,
+                "color": "#666666",
+                "size": "sm",
+                "flex": 5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "spacing": "sm",
+    "contents": [
+      {
+        "type": "button",
+        "style": "link",
+        "height": "sm",
+        "action": {
+          "type": "uri",
+          "label": "CALL",
+          "uri": "https://linecorp.com"
+        }
+      },
+      {
+        "type": "button",
+        "style": "link",
+        "height": "sm",
+        "action": {
+          "type": "uri",
+          "label": "WEBSITE",
+          "uri": "https://linecorp.com"
+        }
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [],
+        "margin": "sm"
+      }
+    ],
+    "flex": 0
+  }
+}} #json貼在這裡
+        )
+        line_bot_api.reply_message(event.reply_token, flex_message)
     elif re.match('3',message):
         carousel_template_message = TemplateSendMessage(
             alt_text='免費教學影片',
@@ -492,6 +675,60 @@ def handle_message(event):
                             ),
                             URIAction(
                                 label='馬上查看',
+                                uri='https://marketingliveincode.com/?page_id=2648'
+                            )
+                        ]
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, carousel_template_message)
+    elif re.match('3-3',message):
+        carousel_template_message = TemplateSendMessage(
+            alt_text='免費教學影片',
+            template=CarouselTemplate(
+                columns=[
+                    CarouselColumn(
+                        thumbnail_image_url='https://i.imgur.com/wpM584d.jpg',
+                        title='3-3',
+                        text='萬丈高樓平地起',
+                        actions=[
+                            MessageAction(
+                                label='教學內容',
+                                text='拆解步驟詳細介紹安裝並使用Anaconda、Python、Spyder、VScode…'
+                            ),
+                            URIAction(
+                                label='馬上查看',
+                                uri='https://marketingliveincode.com/?page_id=270'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://i.imgur.com/W7nI6fg.jpg',
+                        title='Line 3-3',
+                        text='台灣最廣泛使用的通訊軟體',
+                        actions=[
+                            MessageAction(
+                                label='教學內容',
+                                text='Line Bot申請與串接'
+                            ),
+                            URIAction(
+                                label='馬上查看',
+                                uri='https://marketingliveincode.com/?page_id=2532'
+                            )
+                        ]
+                    ),
+                    CarouselColumn(
+                        thumbnail_image_url='https://i.imgur.com/l7rzfIK.jpg',
+                        title='Telegram 3-3',
+                        text='唯有真正的方便，能帶來意想不到的價值',
+                        actions=[
+                            MessageAction(
+                                label='教學內容',
+                                text='Telegrame申請與串接'
+                            ),
+                            URIAction(
+                                label='3-3',
                                 uri='https://marketingliveincode.com/?page_id=2648'
                             )
                         ]
