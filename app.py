@@ -245,7 +245,7 @@ def handle_message(event):
     elif re.match('新北',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('北投捷運會館(限會員)\n時間:星期一、五12:00-15:00\n聯絡人:\n地圖:https://goo.gl/maps/L6xjkG1oeWTHe2Yg8\n\n 萬華運動中心\n時間:星期三下午4:00-6:00\n聯絡人:\n地圖:https://goo.gl/maps/AnRo1qYiGruPm5Pn9 \n\n五股公民會館\n時間:星期三、五晚上5:30-9:30\n聯絡人:\n地圖:https://goo.gl/maps/vTNGexS9mXZ5469i8 \n\n新莊運動中心(限會員)\n時間:星期四下午1:00-4:00\n聯絡人:\n地圖:https://goo.gl/maps/hAFTcZjZzZDuPUwv8 \n\n北投運動中心\n時間:星期六下午4:00-6:00\n聯絡人:\n地圖:https://goo.gl/maps/Dg2eQPAjNhkgeNLo7 \n\n'))
     elif re.match('桃園',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('\n時間:\n聯絡人:\n地圖:\nLINE群組：\n\n'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('元智大學體育館(室內)\n時間:星期六、日\n早上9:00-12:00 下午1:00-4:00\n聯絡人:梁鳳紋0934353010\n地圖:https://goo.gl/maps/BkPPwCGDxaTVVun48'))
     elif re.match('新竹',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('\n時間:\n聯絡人:\n地圖:\nLINE群組：\n\n'))
     elif re.match('台中',message):
@@ -255,7 +255,7 @@ def handle_message(event):
     elif re.match('南投',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('埔里鎮立綜合球場\n時間:星期一~五下午4:00~8:00\n聯絡人:張永昌 0983711749\n地圖:https://goo.gl/maps/9d5UfW3KTyNYpmaW8\n\n'))
     elif re.match('嘉義',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('\n時間:\n聯絡人:\n地圖:\nLINE群組：\n\n'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('嘉義高工\n時間:星期一~五下午4:00-晚上8:00(例假日須提前約)\n聯絡人:曾建儒 0953915400\n地圖:https://goo.gl/maps/57gsNKoB4ezCA3uT8'))
     elif re.match('台南',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('\n時間:\n聯絡人:\n地圖:\nLINE群組：\n\n'))
     elif re.match('高雄',message):
