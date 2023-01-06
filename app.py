@@ -240,10 +240,31 @@ def handle_message(event):
         else:
             FlexMessage = json.load(open('weather.json','r',encoding='utf-8'))
             line_bot_api.reply_message(reply_token, FlexSendMessage('profile',FlexMessage))
+    elif re.match('台北',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('北投捷運會館(限會員)\n時間:星期一、五12:00-15:00\n聯絡人:\n地圖:https://goo.gl/maps/L6xjkG1oeWTHe2Yg8\n\n 萬華運動中心\n時間:星期三下午4:00-6:00\n聯絡人:\n地圖:https://goo.gl/maps/AnRo1qYiGruPm5Pn9 \n\n五股公民會館\n時間:星期三、五晚上5:30-9:30\n聯絡人:\n地圖:https://goo.gl/maps/vTNGexS9mXZ5469i8 \n\n新莊運動中心(限會員)\n時間:星期四下午1:00-4:00\n聯絡人:\n地圖:https://goo.gl/maps/hAFTcZjZzZDuPUwv8 \n\n北投運動中心\n時間:星期六下午4:00-6:00\n聯絡人:\n地圖:https://goo.gl/maps/Dg2eQPAjNhkgeNLo7 \n\n'))
+    elif re.match('新北',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('北投捷運會館(限會員)\n時間:星期一、五12:00-15:00\n聯絡人:\n地圖:https://goo.gl/maps/L6xjkG1oeWTHe2Yg8\n\n 萬華運動中心\n時間:星期三下午4:00-6:00\n聯絡人:\n地圖:https://goo.gl/maps/AnRo1qYiGruPm5Pn9 \n\n五股公民會館\n時間:星期三、五晚上5:30-9:30\n聯絡人:\n地圖:https://goo.gl/maps/vTNGexS9mXZ5469i8 \n\n新莊運動中心(限會員)\n時間:星期四下午1:00-4:00\n聯絡人:\n地圖:https://goo.gl/maps/hAFTcZjZzZDuPUwv8 \n\n北投運動中心\n時間:星期六下午4:00-6:00\n聯絡人:\n地圖:https://goo.gl/maps/Dg2eQPAjNhkgeNLo7 \n\n'))
+    elif re.match('桃園',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('\n時間:\n聯絡人:\n地圖:\nLINE群組：\n\n'))
+    elif re.match('新竹',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('\n時間:\n聯絡人:\n地圖:\nLINE群組：\n\n'))
     elif re.match('台中',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('台中網球中心\n時間:星期一、星期三\n晚上7:00~9:00\n費用:零打130\n聯絡人:\n地圖:https://goo.gl/maps/dBqGFVxX5XwtUAZx5 \nLINE群組：國際網球中心匹克球 http://line.me/ti/g/y2HUGPU7Qa \n\n舊社公園\n時間:星期一晚上6:30\n星期日下午2:00\n聯絡人:\n地圖: https://goo.gl/maps/WcZ2ATFh4mqWET32A'))
-    # elif re.match('台中',message):
-    #     line_bot_api.reply_message(event.reply_token,TextSendMessage('舊社公園\n時間:星期一晚上6:30\n星期日下午2:00\n聯絡人:\n地圖: https://goo.gl/maps/WcZ2ATFh4mqWET32A'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('台中網球中心\n時間:星期一、星期三\n晚上7:00~9:00\n費用:零打130\n聯絡人:\n地圖:https://goo.gl/maps/dBqGFVxX5XwtUAZx5 \nLINE群組：國際網球中心匹克球 http://line.me/ti/g/y2HUGPU7Qa \n\n舊社公園\n時間:星期一晚上6:30\n星期日下午2:00\n聯絡人:\n地圖: https://goo.gl/maps/WcZ2ATFh4mqWET32A \n\n迷你網球場\n時間:禮拜二晚上7;30\n聯絡人:\n 地圖:https://goo.gl/maps/AEKh9pzacH6S9pFe7'))
+    elif re.match('彰化',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('秀水籃球場\n時間:星期一、三、五晚上7:00\n地圖:https://goo.gl/maps/aFjkM8yXDbotN7FE6\n\n'))
+    elif re.match('南投',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('埔里鎮立綜合球場\n時間:星期一~五下午4:00~8:00\n聯絡人:張永昌 0983711749\n地圖:https://goo.gl/maps/9d5UfW3KTyNYpmaW8\n\n'))
+    elif re.match('嘉義',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('\n時間:\n聯絡人:\n地圖:\nLINE群組：\n\n'))
+    elif re.match('台南',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('\n時間:\n聯絡人:\n地圖:\nLINE群組：\n\n'))
+    elif re.match('高雄',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('正勤活動中心\n時間:星期一、三晚上5:00~8:00\n聯絡人:魏法徵0920429026\n地圖: https://goo.gl/maps/FgYJuLpaX2FMPm5K6 \n\n輔仁路匹克球場\n時間:每天晚上6:00~9:00(下雨取消)\n聯絡人:楊典霖0987510990\n地圖:https://goo.gl/maps/GKbjnvnGAsk1XzZ4A'))
+    elif re.match('屏東',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('\n時間:\n聯絡人:\n地圖:\nLINE群組：\n\n'))
+
+    
+    
 
     elif re.match('請輸入地區 例:台中',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage(''))        
