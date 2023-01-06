@@ -182,7 +182,7 @@ def handle_message(event):
         # Flex Message Simulator網頁：https://developers.line.biz/console/fx/
         flex_message = FlexSendMessage(
             alt_text='行銷搬進大程式',
-            contents={
+            contents={{
   "type": "carousel",
   "contents": [
     {
@@ -443,7 +443,7 @@ def handle_message(event):
       }
     }
   ]
-} #json貼在這裡
+}} #json貼在這裡
         )
         line_bot_api.reply_message(event.reply_token, flex_message)
     elif re.match('3',message):
