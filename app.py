@@ -65,9 +65,9 @@ def handle_message(event):
             line_bot_api.reply_message(reply_token, FlexSendMessage('profile',FlexMessage))
 
     elif re.match('台北',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('北投捷運會館(限會員)\n時間:星期一、五12:00-15:00\n聯絡人:\n地圖:https://goo.gl/maps/L6xjkG1oeWTHe2Yg8\n\n 萬華運動中心\n時間:星期三下午4:00-6:00\n聯絡人:\n地圖:https://goo.gl/maps/AnRo1qYiGruPm5Pn9 \n\n五股公民會館\n時間:星期三、五晚上5:30-9:30\n聯絡人:\n地圖:https://goo.gl/maps/vTNGexS9mXZ5469i8 \n\n新莊運動中心(限會員)\n時間:星期四下午1:00-4:00\n聯絡人:\n地圖:https://goo.gl/maps/hAFTcZjZzZDuPUwv8 \n\n北投運動中心\n時間:星期六下午4:00-6:00\n聯絡人:\n地圖:https://goo.gl/maps/Dg2eQPAjNhkgeNLo7 \n\n'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('北投捷運會館(限會員)\n時間:星期一、五12:00-15:00\n聯絡人:\n地圖:https://goo.gl/maps/L6xjkG1oeWTHe2Yg8\n\n 萬華運動中心\n時間:星期三下午4:00-6:00\n聯絡人:\n地圖:https://goo.gl/maps/AnRo1qYiGruPm5Pn9 \n\n五股公民會館\n時間:星期三、五晚上5:30-9:30\n聯絡人:\n地圖:https://goo.gl/maps/vTNGexS9mXZ5469i8 \n\n新莊運動中心(限會員)\n時間:星期四下午1:00-4:00\n聯絡人:\n地圖:https://goo.gl/maps/hAFTcZjZzZDuPUwv8 \n\n北投運動中心\n時間:星期六下午4:00-6:00\n聯絡人:\n地圖:https://goo.gl/maps/Dg2eQPAjNhkgeNLo7 '))
     elif re.match('新北',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('北投捷運會館(限會員)\n時間:星期一、五12:00-15:00\n聯絡人:\n地圖:https://goo.gl/maps/L6xjkG1oeWTHe2Yg8\n\n 萬華運動中心\n時間:星期三下午4:00-6:00\n聯絡人:\n地圖:https://goo.gl/maps/AnRo1qYiGruPm5Pn9 \n\n五股公民會館\n時間:星期三、五晚上5:30-9:30\n聯絡人:\n地圖:https://goo.gl/maps/vTNGexS9mXZ5469i8 \n\n新莊運動中心(限會員)\n時間:星期四下午1:00-4:00\n聯絡人:\n地圖:https://goo.gl/maps/hAFTcZjZzZDuPUwv8 \n\n北投運動中心\n時間:星期六下午4:00-6:00\n聯絡人:\n地圖:https://goo.gl/maps/Dg2eQPAjNhkgeNLo7 \n\n'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('北投捷運會館(限會員)\n時間:星期一、五12:00-15:00\n聯絡人:\n地圖:https://goo.gl/maps/L6xjkG1oeWTHe2Yg8\n\n 萬華運動中心\n時間:星期三下午4:00-6:00\n聯絡人:\n地圖:https://goo.gl/maps/AnRo1qYiGruPm5Pn9 \n\n五股公民會館\n時間:星期三、五晚上5:30-9:30\n聯絡人:\n地圖:https://goo.gl/maps/vTNGexS9mXZ5469i8 \n\n新莊運動中心(限會員)\n時間:星期四下午1:00-4:00\n聯絡人:\n地圖:https://goo.gl/maps/hAFTcZjZzZDuPUwv8 \n\n北投運動中心\n時間:星期六下午4:00-6:00\n聯絡人:\n地圖:https://goo.gl/maps/Dg2eQPAjNhkgeNLo7 '))
     elif re.match('桃園',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('元智大學體育館(室內)\n時間:星期六、日\n早上9:00-12:00 下午1:00-4:00\n聯絡人:梁鳳紋0934353010\n地圖:https://goo.gl/maps/BkPPwCGDxaTVVun48'))
     elif re.match('新竹',message):
@@ -77,7 +77,7 @@ def handle_message(event):
     elif re.match('彰化',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('秀水籃球場\n時間:星期一、三、五晚上7:00\n地圖:https://goo.gl/maps/aFjkM8yXDbotN7FE6\n\n'))
     elif re.match('南投',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('埔里鎮立綜合球場\n時間:星期一~五下午4:00~8:00\n聯絡人:張永昌 0983711749\n地圖:https://goo.gl/maps/9d5UfW3KTyNYpmaW8\n\n'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('埔里鎮立綜合球場\n時間:星期一~五下午4:00~8:00\n聯絡人:張永昌 0983711749\n地圖:https://goo.gl/maps/9d5UfW3KTyNYpmaW8'))
     elif re.match('嘉義',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('嘉義高工\n時間:星期一~五下午4:00-晚上8:00(例假日須提前約)\n聯絡人:曾建儒 0953915400\n地圖:https://goo.gl/maps/57gsNKoB4ezCA3uT8'))
     elif re.match('台南',message):
@@ -85,7 +85,7 @@ def handle_message(event):
     elif re.match('高雄',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('正勤活動中心\n時間:星期一、三晚上5:00~8:00\n聯絡人:魏法徵0920429026\n地圖: https://goo.gl/maps/FgYJuLpaX2FMPm5K6 \n\n輔仁路匹克球場\n時間:每天晚上6:00~9:00(下雨取消)\n聯絡人:楊典霖0987510990\n地圖:https://goo.gl/maps/GKbjnvnGAsk1XzZ4A'))
     elif re.match('屏東',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('\n時間:\n聯絡人:\n地圖:\nLINE群組：\n\n'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('內埔國小操場旁\n時間:每天早上6點～7點\n週六、日可到9點\n下午則會員會自行邀約\n聯絡人:\n地圖:https://goo.gl/maps/Yxscyo7HZg7RaM259'))
 
     
     elif re.match('請輸入地區 例:台中',message):
