@@ -58,12 +58,12 @@ def handle_message(event):
     if(message[:2] == '天氣'):
         city = message[3:]
         city = city.replace('台','臺')
-        message = city.replace('台','臺')
         if(not (city in cities)):
             line_bot_api.reply_message(reply_token,TextSendMessage(text="查詢格式為: 天氣 縣市"))
         else:
-            FlexMessage = json.load(open('weather.json','r',encoding='utf-8'))
-            line_bot_api.reply_message(reply_token, FlexSendMessage('profile',FlexMessage))
+            res = get(city)
+            for data in res:
+                line_bot_api.reply_message(event.reply_token,TextSendMessage('{} ~ {}\n天氣狀況 {}\n溫度 {} ~ {} °C\n降雨機率 {}\n'.format(res[0][0]['startTime'][5:-3],res[0][0]['endTime'][5:-3]),format(data[0]['parameter']['parameterName'],data[2]['parameter']['parameterName'],data[4]['parameter']['parameterName'],data[1]['parameter']['parameterName'])))
 
     elif re.match('台北',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('北投捷運會館(限會員)\n時間:星期一、五12:00-15:00\n聯絡人:\n地圖:https://goo.gl/maps/L6xjkG1oeWTHe2Yg8\n\n 萬華運動中心\n時間:星期三下午4:00-6:00\n聯絡人:\n地圖:https://goo.gl/maps/AnRo1qYiGruPm5Pn9 \n\n五股公民會館\n時間:星期三、五晚上5:30-9:30\n聯絡人:\n地圖:https://goo.gl/maps/vTNGexS9mXZ5469i8 \n\n新莊運動中心(限會員)\n時間:星期四下午1:00-4:00\n聯絡人:\n地圖:https://goo.gl/maps/hAFTcZjZzZDuPUwv8 \n\n北投運動中心\n時間:星期六下午4:00-6:00\n聯絡人:\n地圖:https://goo.gl/maps/Dg2eQPAjNhkgeNLo7 '))
