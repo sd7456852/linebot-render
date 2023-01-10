@@ -46,6 +46,8 @@ def get(city):
         for i in Data:
             res[j].append(i['time'][j])
     return res
+
+
 #訊息傳遞區塊
 ##### 基本上程式編輯都在這個function #####
 
@@ -55,6 +57,7 @@ def handle_message(event):
     user_id = event.source.user_id
     reply_token = event.reply_token
     message = text=event.message.text
+    
     if(message[:2] == '天氣'):
         city = message[3:]
         city = city.replace('台','臺')
@@ -62,9 +65,24 @@ def handle_message(event):
             line_bot_api.reply_message(reply_token,TextSendMessage(text="查詢格式為: 天氣 縣市"))
         else:
             res = get(city)
-            for data in res:
-                line_bot_api.reply_message(event.reply_token,TextSendMessage('{} ~ {}\n天氣狀況 {}\n溫度 {} ~ {} °C\n降雨機率 {}\n'.format(res[0][0]['startTime'][5:-3],res[0][0]['endTime'][5:-3]),format(data[0]['parameter']['parameterName'],data[2]['parameter']['parameterName'],data[4]['parameter']['parameterName'],data[1]['parameter']['parameterName'])))
-
+            line_bot_api.reply_message(reply_token, TemplateSendMessage(
+                alt_text = city + '未來 36 小時天氣預測',
+                template = CarouselTemplate(
+                    columns = [
+                        CarouselColumn(
+                            thumbnail_image_url = 'https://i.imgur.com/Ex3Opfo.png',
+                            title = '{} ~ {}'.format(res[0][0]['startTime'][5:-3],res[0][0]['endTime'][5:-3]),
+                            text = '天氣狀況 {}\n溫度 {} ~ {} °C\n降雨機率 {}'.format(data[0]['parameter']['parameterName'],data[2]['parameter']['parameterName'],data[4]['parameter']['parameterName'],data[1]['parameter']['parameterName']),
+                            actions = [
+                                URIAction(
+                                    label = '詳細內容',
+                                    uri = 'https://www.cwb.gov.tw/V8/C/W/County/index.html'
+                                )
+                            ]
+                        )for data in res
+                    ]
+                )
+            ))
     elif re.match('台北',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('北投捷運會館(限會員)\n時間:星期一、五12:00-15:00\n聯絡人:\n地圖:https://goo.gl/maps/L6xjkG1oeWTHe2Yg8\n\n 萬華運動中心\n時間:星期三下午4:00-6:00\n聯絡人:\n地圖:https://goo.gl/maps/AnRo1qYiGruPm5Pn9 \n\n五股公民會館\n時間:星期三、五晚上5:30-9:30\n聯絡人:\n地圖:https://goo.gl/maps/vTNGexS9mXZ5469i8 \n\n新莊運動中心(限會員)\n時間:星期四下午1:00-4:00\n聯絡人:\n地圖:https://goo.gl/maps/hAFTcZjZzZDuPUwv8 \n\n北投運動中心\n時間:星期六下午4:00-6:00\n聯絡人:\n地圖:https://goo.gl/maps/Dg2eQPAjNhkgeNLo7 '))
     elif re.match('新北',message):
@@ -88,7 +106,6 @@ def handle_message(event):
     elif re.match('屏東',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('內埔國小操場旁\n時間:每天早上6點～7點\n週六、日可到9點\n下午則會員會自行邀約\n聯絡人:\n地圖:https://goo.gl/maps/Yxscyo7HZg7RaM259'))
 
-    
     elif re.match('請輸入地區 例:台中',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage(''))        
     else:
