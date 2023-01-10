@@ -81,8 +81,6 @@ def handle_message(event):
                 res = get(city)
                 print(res)
                 line_bot_api.reply_message(reply_token, FlexSendMessage(city + '未來 36 小時天氣預測',res))
-        else:
-            line_bot_api.reply_message(reply_token, TextSendMessage(text=message))
 
     elif(message_type == 'location'):
         city = event.message.address[5:8].replace('台','臺')
