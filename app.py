@@ -70,9 +70,8 @@ def handle_message(event):
     reply_token = event.reply_token
     message = text=event.message.text
     
-    if(message_type == 'text'):
-        message = event.message.text
-        if(message[:2] == '天氣'):
+
+    if(message[:2] == '天氣'):
             city = message[3:]
             city = city.replace('台','臺')
             if(not (city in cities)):
