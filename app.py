@@ -155,9 +155,9 @@ def get(city):
     Data = requests.get(url)
     Data = (json.loads(Data.text,encoding='utf-8'))['records']['location'][0]['weatherElement']
     res = [[] , [] , []]
-    for j in range(2):
-        for i in Data:
-            res[j].append(i['time'][j])
+    for j in range(3):
+        
+            res[j].append(['time'][j])
     return res
 
 # Message event
