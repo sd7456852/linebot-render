@@ -120,19 +120,7 @@
 #     port = int(os.environ.get('PORT', 5000))
 #     app.run(host='0.0.0.0', port=port)
 # --------------------------------------------------------------------
-"""
-Created on Wed Jun  2 21:16:35 2021
-
-@author: Ivan
-版權屬於「行銷搬進大程式」所有，若有疑問，可聯絡ivanyang0606@gmail.com
-
-Line Bot聊天機器人
-第四章 選單功能
-客製化選單FlexSendMessage
-"""
-#載入LineBot所需要的套件
 from flask import Flask, request, abort
-
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -140,33 +128,26 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-import re
-app = Flask(__name__)
+import json,requests
 
 app = Flask(__name__)
+# LINE BOT info
 # 必須放上自己的Channel Access Token
 line_bot_api = LineBotApi('+WddPIOMZ56D7Tre1fmARy1z1eiZGJ5uJEQut/9vq1O6LsM+6hFBHugc/fwD1+HF/KwMEVqQWz1/4ef/4PMhkPWCA7TZXZVwdqB5dZIelMnkukmZL744cTBSBoW1Ua0aCYI94OidHv+wH4uBVJI36QdB04t89/1O/w1cDnyilFU=')
 # 必須放上自己的Channel Secret
+handler = WebhookHandler('e97792d24f1f087c95eec15736713fcd')
 
-
-# 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
-    # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
-
-    # get request body as text
     body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
-
-    # handle webhook body
+    print(body)
     try:
         handler.handle(body, signature)
     except InvalidSignatureError:
         abort(400)
-
     return 'OK'
-
 cities = ['基隆市','嘉義市','臺北市','嘉義縣','新北市','臺南市','桃園縣','高雄市','新竹市','屏東縣','新竹縣','臺東縣','苗栗縣','花蓮縣','臺中市','宜蘭縣','彰化縣','澎湖縣','南投縣','金門縣','雲林縣','連江縣']
 
 def get(city):
@@ -191,20 +172,10 @@ def get(city):
         bubble['body']['contents'][3]['contents'][4]['contents'][1]['text'] = Data[3]['time'][j]['parameter']['parameterName']
         res['contents'].append(bubble)
     return res
-#訊息傳遞區塊
-##### 基本上程式編輯都在這個function #####
-@handler.add(MessageEvent, message=TextMessage)
+
+# Message event
+@handler.add(MessageEvent)
 def handle_message(event):
-    # message = text=event.message.text
-    # if re.match('告訴我秘密',message):
-    #     # Flex Message Simulator網頁：https://developers.line.biz/console/fx/
-    #     flex_message = FlexSendMessage(
-    #         alt_text='行銷搬進大程式',
-    #         contents={...} #json貼在這裡
-    #     )
-    #     line_bot_api.reply_message(event.reply_token, flex_message)
-    # else:
-    #     line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
     message_type = event.message.type
     user_id = event.source.user_id
     reply_token = event.reply_token
@@ -225,7 +196,7 @@ def handle_message(event):
         city = event.message.address[5:8].replace('台','臺')
         res = get(city)
         line_bot_api.reply_message(reply_token, FlexSendMessage(city + '未來 36 小時天氣預測',res))
-#主程式
+
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
