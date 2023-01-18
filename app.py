@@ -128,7 +128,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-import json,requests
+import json,requests,re
 
 app = Flask(__name__)
 # LINE BOT info
@@ -193,6 +193,8 @@ def handle_message(event):
                     ]
                 )
             ))
+    elif re.match('新竹',message):
+        line_bot_api.reply_message(event.reply_token,TextSendMessage('目前尚無場地'))
     else:
         line_bot_api.reply_message(reply_token, TextSendMessage(text=message))
 import os
