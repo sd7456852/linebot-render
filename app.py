@@ -156,8 +156,7 @@ def get(city):
     Data = (json.loads(Data.text,encoding='utf-8'))['records']['location'][0]['weatherElement']
     res = [[] , [], []]
     for j in range(3):
-        for i in Data:
-            res[j].append(i['time'][j]['startTime'][5:-3])
+            res[j].append(Data[0]['time'][j])
     return res
 
 # Message event
