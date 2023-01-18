@@ -181,7 +181,7 @@ def handle_message(event):
                         CarouselColumn(
                             thumbnail_image_url = 'https://i.imgur.com/Ex3Opfo.png',
                                             #.format(Data[0]['time'][j]['startTime'][5:-3],Data[0]['time'][j]['endTime'][5:-3])
-                            title = '{} ~ {}'.format(res[0]['time']['startTime'][5:-3],res[0]['time']['endTime'][5:-3]),
+                            title = '{} ~ {}'.format(res[0][1]['startTime'][5:-3],res[0][1]['endTime'][5:-3]),
                             text = '天氣狀況 {}\n溫度 {} ~ {} °C\n降雨機率 {}'.format(data[0]['parameter']['parameterName'],data[2]['parameter']['parameterName'],data[4]['parameter']['parameterName'],data[1]['parameter']['parameterName']),
                             actions = [
                                 URIAction(
