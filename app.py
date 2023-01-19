@@ -96,7 +96,7 @@ def handle_message(event):
     elif re.match('請輸入地區 例:台中',message):
         line_bot_api.reply_message(event.reply_token,TextSendMessage('')) 
     else:
-        line_bot_api.reply_message(event.reply_token, TextSendMessage('查詢場地請輸入 例:台中市 高雄市\n查詢天氣請輸入 例:天氣 台中'))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage('查詢場地請輸入 例:台中 高雄\n查詢天氣請輸入 例:天氣 台中市'))
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
